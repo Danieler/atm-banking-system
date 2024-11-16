@@ -71,12 +71,11 @@ project-root/
 │       └── index.js                # Exports all Joi schemas
 ├── middlewares/             # Custom middlewares
 │   └── authMiddleware.js    # Middleware for authentication
-├── tests/                   # Tests for the application
-│   └── v1/                  # Version 1 tests
-│       ├── accountController.test.js  # Test file for account controller
-│       └── transactionController.test.js  # Test file for transaction controller
+├── models/                  # Models directory
+│   └── withdrawModel.js      # Model to handle withdrawal logic and accounts
 ├── README.md                # Project description and setup instructions
 └── package-lock.json        # Lock file for consistent dependency versions
+
 
 
 
