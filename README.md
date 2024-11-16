@@ -73,6 +73,8 @@ project-root/
 │   └── authMiddleware.js    # Middleware for authentication
 ├── models/                  # Models directory
 │   └── withdrawModel.js      # Model to handle withdrawal logic and accounts
+├── e2e/                     # End-to-end tests
+│   └── supertest/           # Supertest tests for API endpoints
 ├── README.md                # Project description and setup instructions
 └── package-lock.json        # Lock file for consistent dependency versions
 
