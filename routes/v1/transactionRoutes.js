@@ -7,12 +7,12 @@ const { withdrawController, depositController, transferController } = require('.
 
 
 // Withdrawing money from the account
-router.post('/:accountId/withdraw', authMiddleware, validateRequest(withdrawSchema), withdrawController.withdrawMoney);
+router.post('/:accountId/withdraw', authMiddleware, validateRequest(withdrawSchema), withdrawController);
 
 // Deposit money into the account
-router.post('/:accountId/deposit', authMiddleware, validateRequest(depositSchema), depositController.depositMoney);
+router.post('/:accountId/deposit', authMiddleware, validateRequest(depositSchema), depositController);
 
 // Make a transfer
-router.post('/:accountId/transfer', authMiddleware, validateRequest(transferSchema), transferController.transferMoney);
+router.post('/:accountId/transfer', authMiddleware, validateRequest(transferSchema), transferController);
 
 module.exports = router;

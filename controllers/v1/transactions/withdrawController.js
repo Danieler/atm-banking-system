@@ -1,6 +1,6 @@
 const { processWithdrawal } = require('../../../models/withdrawModel');
 
-const withdrawMoney = (req, res) => {
+const withdrawController = (req, res) => {
     const {accountId} = req.params;
     const {amount, cardType, bankId} = req.body;
 
@@ -16,4 +16,4 @@ const withdrawMoney = (req, res) => {
     });
 };
 
-module.exports = {withdrawMoney};
+module.exports = withdrawController;

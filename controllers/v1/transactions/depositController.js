@@ -1,9 +1,15 @@
-const depositMoney = (req, res) => {
+const { processDeposit } = require('../../../models/depositModel');
+const depositMoneyController = (req, res) => {
     const { accountId } = req.params;
-    const { amount } = req.body;
+    const { amount, cardId, bankId } = req.body;
 
-    // Logic for verifying that the teller is from the same bank
-    res.json({ message: `Successfully deposited ${amount} to account ${accountId}` });
+    const result = processDeposit(accountId, amount, cardId, bankId);
+
+    if (result.error) {
+        return res.status(400).json({ error: result.error });
+    }
+
+    return res.status(200).json({ message: result.message, newBalance: result.newBalance });
 };
 
-module.exports = { depositMoney };
+module.exports = depositMoneyController;
