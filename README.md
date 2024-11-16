@@ -53,17 +53,32 @@ project-root/
 │   └── db.js                # Database configuration (future implementation)
 ├── controllers/             # Business logic for each route
 │   └── v1/                  # Version 1 controllers
-│       └── accountController.js # Controller for account-related operations
+│       ├── accountController.js     # Controller for account-related operations
+│       └── transactions/           # Subdirectory for transaction-related controllers
+│           ├── withdrawController.js  # Controller for withdrawing money
+│           ├── depositController.js   # Controller for depositing money
+│           ├── transferController.js  # Controller for transferring money
+│           └── index.js             # Exports all transaction controllers
 ├── routes/                  # API routes
 │   └── v1/                  # Version 1 routes
-│       └── accountRoutes.js     # Routes for account operations
+│       ├── accountRoutes.js          # Routes for account operations
+│       └── transactionRoutes.js      # Routes for transaction operations
+├── schemas/                 # Joi validation schemas for the API
+│   └── v1/                  # Version 1 schemas
+│       ├── depositSchema.js        # Joi schema for deposit validation
+│       ├── withdrawSchema.js       # Joi schema for withdrawal validation
+│       ├── transferSchema.js       # Joi schema for transfer validation
+│       └── index.js                # Exports all Joi schemas
 ├── middlewares/             # Custom middlewares
 │   └── authMiddleware.js    # Middleware for authentication
 ├── tests/                   # Tests for the application
 │   └── v1/                  # Version 1 tests
-│       └── accountController.test.js # Test file for account controller
+│       ├── accountController.test.js  # Test file for account controller
+│       └── transactionController.test.js  # Test file for transaction controller
 ├── README.md                # Project description and setup instructions
 └── package-lock.json        # Lock file for consistent dependency versions
+
+
 
 
 
