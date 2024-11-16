@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app'); // Ruta correcta al archivo app.js
+const app = require('../app');
 
 describe('GET /api/v1/accounts/:accountId/details', () => {
     it('should return account transactions for a valid accountId', async () => {
