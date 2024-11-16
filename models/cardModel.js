@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 let cards = [
     { cardNumber: '1111', isActive: false, pin: null, withdrawalLimit: 1000 },
     { cardNumber: '2222', isActive: true, pin: '1234', withdrawalLimit: 3000 },
@@ -19,7 +20,7 @@ const activateCard = (cardNumber, pin) => {
     return { message: 'Card activated successfully' };
 };
 
-const changePin = (cardNumber, pin) => {
+const changePin = async (cardNumber, newPin) => {
     const card = cards.find(card => card.cardNumber === cardNumber);
 
     if (!card) {
@@ -30,7 +31,9 @@ const changePin = (cardNumber, pin) => {
         return { error: 'Card must be activated before changing the PIN' };
     }
 
-    card.pin = pin;  // Update the PIN
+    const hashedPin = await bcrypt.hash(newPin, 10);
+    card.pin = hashedPin;
+
     return { message: 'PIN changed successfully' };
 };
 
