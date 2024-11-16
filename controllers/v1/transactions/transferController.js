@@ -1,4 +1,4 @@
-const transferMoney = (req, res) => {
+const transferController = (req, res) => {
     const { accountId } = req.params;
     const { destinationIban, amount } = req.body;
     // IBAN validation and transfer logic
@@ -10,4 +10,4 @@ const transferMoney = (req, res) => {
     res.json({ message: `Successfully transferred ${amount} from account ${accountId} to ${destinationIban}` });
 };
 
-module.exports = { transferMoney };
+module.exports = transferController;
